@@ -78,6 +78,15 @@ public class SyncUtil {
     }
 
     public static boolean checkCollisions(File dir, String incomingFile, String relativePath, String baseDir) {
+
+        System.out.println("//////////////////////");
+        System.out.println("getName(): "+ dir.getName());
+        System.out.println("getPath(): "+ dir.getPath());
+        System.out.println("incoming filename: "+ incomingFile);
+        System.out.println("relativePath: "+ relativePath);
+        System.out.println("baseDir: "+ baseDir);
+        System.out.println("difference: "+ difference(baseDir, dir.getPath()));
+
         if (dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
@@ -86,7 +95,7 @@ public class SyncUtil {
                     return check;
             }
         } else {
-            if ((dir.getName().equals(incomingFile)) && (relativePath.equals(difference(baseDir, dir.getPath())))) {
+            if (relativePath.equals(difference(baseDir, dir.getPath()))) {
                 System.out.println(dir.getName() + " equals " + incomingFile);
                 System.out.println(relativePath + " equals " + difference(baseDir, dir.getPath()));
                 return true;
