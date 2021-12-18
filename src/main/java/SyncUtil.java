@@ -77,17 +77,18 @@ public class SyncUtil {
         return -1;
     }
 
-    public static boolean checkCollisions(File dir, String incomingFile) {
+    public static boolean checkCollisions(File dir, String incomingFile, String relativePath, String baseDir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
-                boolean check = checkCollisions(new File(dir, children[i]), incomingFile);
+                boolean check = checkCollisions(new File(dir, children[i]), incomingFile, relativePath, baseDir);
                 if (check)
                     return check;
             }
         } else {
-            if (dir.getName().equals(incomingFile)) {
+            if ((dir.getName().equals(incomingFile)) && (relativePath.equals(difference(baseDir, dir.getPath())))) {
                 System.out.println(dir.getName() + " equals " + incomingFile);
+                System.out.println(relativePath + " equals " + difference(baseDir, dir.getPath()));
                 return true;
             }
         }
