@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="TestSyncUtils" time="0.01" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="TestSyncUtils" time="0.116" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -27,7 +27,7 @@
     <property name="os.name" value="Windows 10"/>
     <property name="classworlds.conf" value="C:\Users\MaxHM\Maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1251"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;E;D:\MatLab\runtime\win64;D:\MatLab\bin;D:\MatLab\polyspace\bin;C:\Users\MaxHM\AppData\Local\Microsoft\WindowsApps;E:\TeXStudio\miktex\bin\x64\;C:\Users\MaxHM\Maven\bin;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;E;D:\MatLab\runtime\win64;D:\MatLab\bin;D:\MatLab\polyspace\bin;C:\Program Files\Git\cmd;C:\Users\MaxHM\AppData\Local\Microsoft\WindowsApps;E:\TeXStudio\miktex\bin\x64\;C:\Users\MaxHM\Maven\bin;;."/>
     <property name="maven.conf" value="C:\Users\MaxHM\Maven/conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="59.0"/>
@@ -61,5 +61,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="TestSyncUtils" name="TestSyncUtils.testDifference" time="0.001"/>
-  <testcase classname="TestSyncUtils" name="TestSyncUtils.testCollisions" time="0.009"/>
+  <testcase classname="TestSyncUtils" name="TestSyncUtils.testCollisions" time="0.008"/>
+  <testcase classname="TestSyncUtils" name="TestSyncUtils.testSending" time="0.107"/>
+  <testcase classname="TestSyncUtils" name="TestSyncUtils.testReceiving" time="0"/>
 </testsuite>

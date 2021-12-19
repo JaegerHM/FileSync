@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SyncUtil {
 
-    public static void sendFile(Socket socket, File file) {
+    public static boolean sendFile(Socket socket, File file) {
         try {
             OutputStream os = socket.getOutputStream();
             InputStream is = new FileInputStream(file);
@@ -16,14 +16,16 @@ public class SyncUtil {
             }
             os.flush();
             is.close();
+            return true;
         } catch (IOException e) {
             System.out.println("sendFile error.");
             e.printStackTrace(System.out);
         }
+        return false;
     }
 
 
-    public static void receiveFile(Socket socket, File file, long len) {
+    public static boolean receiveFile(Socket socket, File file, long len) {
         try {
             InputStream is = socket.getInputStream();
             OutputStream os = new FileOutputStream(file);
@@ -38,10 +40,12 @@ public class SyncUtil {
             }
             os.flush();
             os.close();
+            return true;
         } catch (IOException e) {
             System.out.println("receive(): IO error.");
             e.printStackTrace(System.out);
         }
+        return false;
     }
 
     public static String difference(String str1, String str2) {
@@ -77,26 +81,16 @@ public class SyncUtil {
         return -1;
     }
 
-    public static boolean checkCollisions(File dir, String incomingFile, String relativePath, String baseDir) {
-
-        System.out.println("//////////////////////");
-        System.out.println("getName(): "+ dir.getName());
-        System.out.println("getPath(): "+ dir.getPath());
-        System.out.println("incoming filename: "+ incomingFile);
-        System.out.println("relativePath: "+ relativePath);
-        System.out.println("baseDir: "+ baseDir);
-        System.out.println("difference: "+ difference(baseDir, dir.getPath()));
-
+    public static boolean checkCollisions(File dir, String relativePath, String baseDir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
-                boolean check = checkCollisions(new File(dir, children[i]), incomingFile, relativePath, baseDir);
+                boolean check = checkCollisions(new File(dir, children[i]), relativePath, baseDir);
                 if (check)
                     return check;
             }
         } else {
             if (relativePath.equals(difference(baseDir, dir.getPath()))) {
-                System.out.println(dir.getName() + " equals " + incomingFile);
                 System.out.println(relativePath + " equals " + difference(baseDir, dir.getPath()));
                 return true;
             }

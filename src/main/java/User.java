@@ -64,7 +64,7 @@ public class User {
                     String relPath = SyncUtil.difference(serverPath, parameter[2]);
 
 
-                    Boolean collision = SyncUtil.checkCollisions(dir, parameter[0], relPath, dirName);
+                    Boolean collision = SyncUtil.checkCollisions(dir, relPath, dirName);
 
                     if (collision) {
                         System.out.println("Collision found! Do you want to rewrite this file? Y/N");

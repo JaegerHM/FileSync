@@ -101,7 +101,7 @@ public class Server {
 
                     String relPath = SyncUtil.difference(clientDir, parameter[2]);
 
-                    Boolean collision = SyncUtil.checkCollisions(file, parameter[0], relPath, dir);
+                    Boolean collision = SyncUtil.checkCollisions(file, relPath, dir);
                     if (collision) {
                         System.out.println("Collision found! Do you want to rewrite this file? Y/N");
                         Scanner sc = new Scanner(System.in);
