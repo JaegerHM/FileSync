@@ -42,7 +42,7 @@ public class User {
             while (true) {
                 String pack = (String) ois.readObject();
                 if (pack.contains("End_of_S-U_synchronisation")) {
-                    System.out.println("StoU ended\n");
+                    System.out.println("S-to-U ended\n");
                     break;
                 }
                 if (pack.contains("$Directory")) {

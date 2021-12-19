@@ -13,16 +13,16 @@ public class TestSyncUtils {
 
     @Test
     public void testDifference() {
-        String str1 = "E:\\123\\test";
-        String str2 = "E:\\123\\test\\one.txt";
+        String str1 = "E:\\FileSync\\test";
+        String str2 = "E:\\FileSync\\test\\one.txt";
 
         assertEquals("\\one.txt", SyncUtil.difference(str1, str2));
     }
 
     @Test
     public void testCollisions() {
-        String basePath = "E:\\123\\test";
-        String fullPath = "E:\\123\\test\\one.txt";
+        String basePath = "E:\\FileSync\\test";
+        String fullPath = "E:\\FileSync\\test\\one.txt";
         String relativePath = SyncUtil.difference(basePath, fullPath);
 
         assertTrue(SyncUtil.checkCollisions(new File(basePath), relativePath, basePath));
@@ -33,7 +33,7 @@ public class TestSyncUtils {
 
         final Socket socket = mock(Socket.class);
 
-        File file = new File("E:\\123\\test\\one.txt");
+        File file = new File("E:\\FileSync\\test\\one.txt");
         try {
             when(socket.getOutputStream()).thenReturn(System.out);
         } catch (IOException e) {
@@ -46,7 +46,7 @@ public class TestSyncUtils {
     public void testReceiving() {
         final Socket socket = mock(Socket.class);
 
-        File file = new File("E:\\123\\test\\one.txt");
+        File file = new File("E:\\FileSync\\test\\one.txt");
         try {
             InputStream in = new FileInputStream(file);
             when(socket.getInputStream()).thenReturn(in);

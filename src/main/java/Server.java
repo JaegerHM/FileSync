@@ -81,7 +81,7 @@ public class Server {
             while (true) {
                 String pack = (String) ois.readObject();
                 if (pack.contains("End_of_U-S_synchronisation")) {
-                    System.out.println("StoU ended\n");
+                    System.out.println("U-to-S ended\n");
                     break;
                 }
 
