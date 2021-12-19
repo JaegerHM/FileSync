@@ -57,10 +57,6 @@ public class User {
 
                     String[] parameter = pack.split("\\s");
 
-                    for (String substr : parameter) {
-                        System.out.println("parameter: " + substr);
-                    }
-
                     String relPath = SyncUtil.difference(serverPath, parameter[2]);
 
 

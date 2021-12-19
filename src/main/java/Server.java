@@ -84,6 +84,7 @@ public class Server {
                     System.out.println("StoU ended\n");
                     break;
                 }
+
                 if (pack.contains("$Directory")) {
                     String[] incomingDir = pack.split("\\s");
                     String newDirName = incomingDir[1];
@@ -94,10 +95,6 @@ public class Server {
                 } else {
 
                     String[] parameter = pack.split("\\s");
-
-                    for (String substr : parameter) {
-                        System.out.println("parameter: " + substr);
-                    }
 
                     String relPath = SyncUtil.difference(clientDir, parameter[2]);
 
