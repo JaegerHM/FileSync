@@ -29,34 +29,32 @@ public class TestSyncUtils {
     }
 
     @Test
-    public void testSending() {
+    public void testSending() throws IOException {
 
         final Socket socket = mock(Socket.class);
 
         File file = new File("E:\\FileSync\\test\\one.txt");
-        try {
-            when(socket.getOutputStream()).thenReturn(System.out);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        when(socket.getOutputStream()).thenReturn(System.out);
+
         assertTrue(SyncUtil.sendFile(socket, file));
+
+        socket.close();
     }
 
     @Test
-    public void testReceiving() {
+    public void testReceiving() throws IOException {
         final Socket socket = mock(Socket.class);
 
         File file = new File("E:\\FileSync\\test\\one.txt");
-        try {
-            InputStream in = new FileInputStream(file);
-            when(socket.getInputStream()).thenReturn(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        InputStream in = new FileInputStream(file);
+        when(socket.getInputStream()).thenReturn(in);
+
         SyncUtil.receiveFile(socket, file, file.length());
 
         assertTrue(SyncUtil.receiveFile(socket, file, file.length()));
+        socket.close();
+
     }
-
-
 }
